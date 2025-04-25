@@ -615,13 +615,17 @@ class MainWindow(QMainWindow):
                         b = int(rgb_values[2])
                         self.rgb_led.set_color(r, g, b)
 
+                elif cmd_type == "RTC":
+                    self.glass_display.set_mode("RTC")
+
 
                 elif cmd_type == "SEG":
+                    self.glass_display.set_mode("TIM", cmd_data)
                     self.segment_display.set_value(cmd_data)
 
                 elif cmd_type =="TIM":
                     self.segment_display.set_value(cmd_data)
-                    self.glass_display.set_mode("TIM", cmd_data)
+                    self.glass_display.set_mode("TIM",cmd_data)
 
                 elif cmd_type == "ADC":
                     try:
